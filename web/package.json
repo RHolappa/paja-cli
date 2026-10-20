@@ -1,0 +1,6 @@
+{
+  "name": "paja-voice-browser-checks",
+  "private": true,
+  "scripts": { "test": "node check-browser.mjs" },
+  "devDependencies": { "playwright": "1.58.2" }
+}

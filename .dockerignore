@@ -1,0 +1,16 @@
+**
+!Cargo.toml
+!Cargo.lock
+!src/
+!src/**
+!examples/
+!examples/**
+!web/
+!web/**
+!LICENSE
+!NOTICE
+**/__pycache__
+**/.env*
+**/node_modules
+**/test-results
+**/tests

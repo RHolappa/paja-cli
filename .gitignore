@@ -1,0 +1,38 @@
+# Credentials and local overrides
+.env
+.env.*
+!.env.example
+!.env.*.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+secrets.md
+.secrets
+*.pem
+*.key
+
+# Private project and runtime state
+.paja/
+.wrangler/
+.wrangler-state/
+
+# Rebuildable output
+target/
+.build/
+.swiftpm/
+node_modules/
+dist/
+coverage/
+*.log
+*.tsbuildinfo
+.DS_Store
+
+# Repository tooling caches and local evidence
+__pycache__/
+*.py[cod]
+.pytest_cache/
+output/
+.local/
+*.sqlite
+*.sqlite3
+*.db

@@ -1,0 +1,26 @@
+{
+  "schema_version": "paja.result.v1",
+  "ok": true,
+  "project": {
+    "id": "prj_demo",
+    "candidate_revision": 0,
+    "state": "draft"
+  },
+  "run": null,
+  "data": {
+    "evidence": "control_fixture",
+    "latest_test_run": null,
+    "message": "No test evidence for the current candidate."
+  },
+  "next_actions": [
+    {
+      "operation": "build",
+      "arguments": {
+        "project_id": "prj_demo",
+        "revision": 0
+      },
+      "required_scope": "project:build"
+    }
+  ],
+  "error": null
+}

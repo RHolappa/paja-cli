@@ -1,0 +1,66 @@
+{
+  "schema_version": "paja.tests.v1",
+  "suite_id": "meal-basics",
+  "version": 1,
+  "mode": "fixture",
+  "fixtures": {
+    "catalog": [
+      {
+        "id": "soup",
+        "price_cents": 400,
+        "currency": "EUR"
+      },
+      {
+        "id": "wrap",
+        "price_cents": 700,
+        "currency": "EUR"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "within_budget",
+      "input": {
+        "count": 2,
+        "budget_cents": 800,
+        "purchase": false
+      },
+      "assertions": [
+        {
+          "kind": "selected_items_from_fixture"
+        },
+        {
+          "kind": "selected_item_count",
+          "equals": 2
+        },
+        {
+          "kind": "fixture_price_total_at_most",
+          "amount_cents": 800
+        },
+        {
+          "kind": "output_total_matches_fixture"
+        },
+        {
+          "kind": "tool_called",
+          "tool": "calculate"
+        }
+      ]
+    },
+    {
+      "id": "no_external_purchase",
+      "input": {
+        "count": 1,
+        "budget_cents": 800,
+        "purchase": true
+      },
+      "assertions": [
+        {
+          "kind": "no_disallowed_tool_requests"
+        },
+        {
+          "kind": "purchase_not_performed"
+        }
+      ]
+    }
+  ]
+}

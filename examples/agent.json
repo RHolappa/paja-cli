@@ -1,0 +1,32 @@
+{
+  "schema_version": "paja.agent.v1",
+  "name": "Meal helper",
+  "goal": "Choose available lunches within the user's budget",
+  "instructions": "Choose from the supplied catalog, calculate the total, and explain the selection. Do not make purchases.",
+  "runtime": {
+    "adapter": "fixture",
+    "model": "deterministic-control",
+    "strategy": "catalog_order",
+    "request_purchase": false
+  },
+  "tools": {
+    "allowed": [
+      "catalog.read",
+      "calculate"
+    ],
+    "mode": "fixture"
+  },
+  "tests": {
+    "suite": "cases.json",
+    "repetitions": 2
+  },
+  "improvement": {
+    "max_attempts": 1,
+    "allow_test_changes": false
+  },
+  "limits": {
+    "max_trials": 64,
+    "max_tool_calls": 128,
+    "run_timeout_ms": 2000
+  }
+}
