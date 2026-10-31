@@ -1,17 +1,43 @@
-![Paja CLI — an open-source agent workshop by Innostium Oy. Build a version, test it, and improve it.](docs/assets/paja-banner.svg)
+![Paja CLI — Insight → Idea → Prototype. Planned multi-agent workflows for developing runnable AI agents. An open-source project of Innostium Oy.](docs/assets/paja-banner.svg)
 
 # Paja CLI
 
-**Build, test, and improve your AI agent.**
+**Insight → Idea → Prototype.**
+
+An open-source project of **Innostium Oy**, written in Rust. Paja is being built for **multi-agent workflows** that turn an observed problem into a testable idea and a runnable agent prototype, with decisions, versions, and evidence connected across the journey.
+
+The development loop: **Build, test, and improve your AI agent.**
 
 *Rakenna, testaa ja kehitä tekoälyagenttiasi.*
 
-An open-source project of **Innostium Oy**, written in Rust. Paja is being built to turn a problem description into an agent you can run, inspect, test, and improve—with versions and evidence you can follow.
-
-[Quick start](#quick-start) · [Browser & Mac](#try-it-your-way) · [CLI reference](docs/CLI.md) · [Roadmap](docs/ROADMAP.md) · [Contributing](CONTRIBUTING.md)
+[The pipeline](#from-insight-to-prototype) · [Multi-agent workflows](#multi-agent-workflows) · [Quick start](#quick-start) · [CLI reference](docs/CLI.md) · [Roadmap](docs/ROADMAP.md)
 
 > [!IMPORTANT]
 > **Local control prototype.** Today, the complete loop runs a deterministic meal-helper fixture. It demonstrates versioning, frozen tests, and bounded improvements. Generating or improving a real AI agent and authenticated worker collaboration are still unimplemented. Voice recognition is real; the target agent remains a fixture.
+
+## From insight to prototype
+
+The intended workflow has three stages:
+
+| Stage | The question | The output |
+| :--- | :--- | :--- |
+| **Insight** | What problem have we observed, and what evidence supports it? | A problem brief with observations, context, and open questions |
+| **Idea** | What could an agent do, and how would we know it helped? | A proposed approach, allowed tools, constraints, and success criteria |
+| **Prototype** | Does the proposed agent work on the task? | A runnable version, test evidence, and a bounded improvement |
+
+The planned workflow keeps the reasoning behind the idea connected to the prototype and its results. Here, a prototype means a **versioned AI agent**. See the [product direction](docs/PRODUCT.md#insight--idea--prototype) and [generation design](docs/GENERATION.md).
+
+## Multi-agent workflows
+
+Planned development workers collaborate on the same target through one coordinator:
+
+- A **builder** turns the selected idea into a proposed agent version.
+- A **tester** evaluates that version against independently authorized, frozen cases.
+- A **reviewer** examines failures and regressions and recommends the next bounded change.
+
+Workers would have separate credentials, scoped tasks, and private immutable inputs. The coordinator would accept their handoffs against the correct version and retain the evidence. The owner sets the goal and permissions. See the [proposed worker protocol](docs/AGENT_PROTOCOL.md).
+
+These are agents helping **develop** the prototype. Specialist agents collaborating inside the prototype's runtime are a separate design choice. Neither collaboration layer is implemented yet; the example below demonstrates the owner-operated control loop.
 
 ## Quick start
 

@@ -6,6 +6,10 @@ The Rust control prototype runs init/build/run/test/improve and records immutabl
 
 ## The promise
 
+**Insight → Idea → Prototype.**
+
+Paja's intended journey uses multi-agent development workflows to turn an observed problem into a testable idea and a runnable agent prototype. The concrete development loop remains:
+
 **Build, test, and improve your AI agent.**
 
 **Rakenna, testaa ja kehitä tekoälyagenttiasi.**
@@ -21,6 +25,18 @@ Define the job → Build a version → Test it → Inspect failures
 ```
 
 Trying the agent yourself is part of the loop. Publishing it is a separate optional step. Neither a public website nor recruited visitors is required to get value from Paja.
+
+## Insight → Idea → Prototype
+
+| Stage | Intended retained output | Transition |
+| --- | --- | --- |
+| Insight | A problem brief with observations, supporting evidence, context, and open questions | Select a problem worth addressing; keep assumptions distinguishable from observations |
+| Idea | A proposed agent job, approach, allowed tools, constraints, and success criteria | Review the approach and separately authorize the evaluation cases |
+| Prototype | An inspectable agent version, task outputs, frozen test results, and baseline comparisons | Run, test, review, and make a bounded improvement |
+
+The prototype is the target AI agent. The pipeline should retain links from the original problem and selected idea to the built version and its evidence. These stage records and transitions are proposed product behavior, not new commands or implemented schemas.
+
+Multi-agent workflows describe development workers collaborating through the coordinator: a builder proposes versions, a tester evaluates authorized frozen cases, and a reviewer examines comparisons. Humans may perform these roles. Worker handoffs require scoped authority and immutable inputs; role names alone grant no permissions. Runtime specialists within the target remain a separate design choice.
 
 ## Two meanings of agent
 

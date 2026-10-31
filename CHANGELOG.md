@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Present the intended Insight → Idea → Prototype journey and planned builder/tester/reviewer workflows in the README and design docs. The prototype remains a versioned AI agent; pipeline stages and worker collaboration are not implemented by this documentation change.
+
 - Add a native SwiftUI voice companion with local WhisperKit transcription and an editable draft.
 - Move the browser companion, server speech transcription, tests, and Docker/Caddy setup to the separate private [paja-web repository](https://github.com/RHolappa/paja-web). Keep the CLI and Mac app here.
 - Add `paja identity`, reviewed prompt files for init/run, and request fingerprints based on file contents. Both companions use the existing Rust coordinator.

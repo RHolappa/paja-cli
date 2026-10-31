@@ -6,6 +6,8 @@ Design direction recorded on 2026-10-26. This capability is not implemented. The
 
 The user describes a problem and the outcome they need. Paja turns that brief into a runnable, inspectable agent project and manages its build, execution, testing, and improvement. The user should be able to start without manually designing prompts, tool wiring, or agent roles.
 
+The product journey is **Insight → Idea → Prototype**. An insight records an observed problem and its evidence; an idea proposes the agent's approach, capabilities, and success criteria; a prototype is a versioned runnable target with attributable test results. The generation adapter connects the reviewed idea to that prototype. Linking these stages is intended behavior; the current fixture only stores goal metadata.
+
 A synthetic starting problem:
 
 > Read incoming support requests and the supplied support policy. Draft a grounded answer, flag requests that require a person, and return the policy passages supporting each draft. Leave sending to the user.
@@ -35,7 +37,7 @@ Development workers collaborate on building, testing, and reviewing a target age
 
 Runtime specialists would collaborate while solving the user's actual problem. For example, a support target could delegate policy retrieval, draft preparation, and escalation detection. Those roles would be components of the versioned target package. They would have declared inputs/outputs, handoffs, tool grants, and a shared bounded run budget. They would not acquire development-coordinator or evaluator authority by collaborating.
 
-The desired emphasis between these layers is still an open product decision. Existing-agent development workers are not proof that runtime teams exist. The current fixture implements neither layer. External orchestration remains the current worker-starting proposal; having Paja start workers through an adapter requires an explicit lifecycle and resource-ownership decision.
+The public pipeline description highlights development workers collaborating on a prototype. Whether runtime specialist teams are also needed remains an open product decision. Development workers are not proof that runtime teams exist. The current fixture implements neither layer. External orchestration remains the current worker-starting proposal; having Paja start workers through an adapter requires an explicit lifecycle and resource-ownership decision.
 
 A useful initial proposal is one generated target with one runtime adapter. Specialist roles should be added when a concrete task benefits from their division of responsibility, and evaluated against the simpler baseline. Role count, handoff count, and retries need limits; more agents alone are not evidence of better results.
 

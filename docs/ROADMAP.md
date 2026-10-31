@@ -1,6 +1,6 @@
 # Roadmap and development
 
-The Rust local control prototype is implemented; real-model execution and scoped workers are not. The delivery goal is “Build, test, and improve your AI agent” / “Rakenna, testaa ja kehitä tekoälyagenttiasi.”
+The intended journey is **Insight → Idea → Prototype**, supported by planned multi-agent development workflows. The delivery loop is “Build, test, and improve your AI agent” / “Rakenna, testaa ja kehitä tekoälyagenttiasi.” The Rust local control prototype is implemented; linked pipeline stages, real-model execution, and scoped workers are not.
 
 ## Current delivery
 
@@ -18,7 +18,9 @@ The 2026-10-26 product clarification makes the next useful capability explicit: 
 
 Implement one configured generation adapter and one compatible target runtime, beginning with synthetic support-drafting tasks and independently specified checks. Record proposed generated tests separately from authorized frozen suites. Validate problem-specific package generation, actual task execution, visible limits and unsupported capabilities, and a bounded evidence-based improvement. Synthetic adapter checks remain distinct from explicitly authorized live-model trials.
 
-Worker collaboration and runtime specialist teams are different design choices. Their desired emphasis and whether Paja should start workers are still open. Generation work can progress on the owner path; the outstanding milestone-1 worker, durability, cancellation, and release requirements remain in force.
+Link the observed problem and supporting evidence (insight), reviewed approach and success criteria (idea), and generated package with test results (prototype). Define those records and transitions before adding interface claims; the existing goal metadata does not implement that pipeline.
+
+The public journey highlights development-worker collaboration. Runtime specialist teams and whether Paja should start workers remain separate open design choices. Generation work can progress on the owner path; the outstanding milestone-1 worker, durability, cancellation, and release requirements remain in force.
 
 ## Runnable repository checks
 

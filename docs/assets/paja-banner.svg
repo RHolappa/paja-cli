@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title description">
-  <title id="title">Paja CLI — an agent workshop</title>
-  <desc id="description">An open-source project of Innostium Oy. Build a version, test it, and improve it. The workflow is illustrated in three connected cards.</desc>
+  <title id="title">Paja CLI — Insight → Idea → Prototype</title>
+  <desc id="description">An open-source project of Innostium Oy. The intended journey connects an observed problem, a testable idea, and a runnable agent prototype. Multi-agent workflows are planned.</desc>
   <defs>
     <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
       <circle cx="1" cy="1" r="1" fill="#52715f"/>
@@ -18,7 +18,7 @@
     <text x="342" y="163" text-anchor="middle" font-size="22" font-weight="600" letter-spacing="2">CLI</text>
     <text x="60" y="245" font-size="30" font-weight="400">An agent workshop.</text>
     <circle cx="67" cy="322" r="5" fill="#ed9b70"/>
-    <text x="84" y="327" fill="#c5d2c3" font-size="15" letter-spacing="0.5">Build. Test. Improve.</text>
+    <text x="84" y="327" fill="#c5d2c3" font-size="15" letter-spacing="0.5">Multi-agent workflows · planned</text>
   </g>
 
   <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
@@ -27,22 +27,23 @@
     <rect x="610" y="32" width="500" height="88" rx="12" fill="#f6f5ef"/>
     <circle cx="658" cy="76" r="22" fill="#e5e9df"/>
     <text x="658" y="83" fill="#35523d" font-size="18" text-anchor="middle" font-weight="600">01</text>
-    <text x="700" y="72" fill="#253730" font-size="26" font-weight="600">Build</text>
-    <text x="700" y="97" fill="#627067" font-size="17">Freeze a version</text>
-    <path d="M1041 63L1052 57L1063 63V77L1052 83L1041 77ZM1041 63L1052 69L1063 63M1052 69V83" fill="none" stroke="#627067" stroke-width="2" stroke-linejoin="round"/>
+    <text x="700" y="72" fill="#253730" font-size="26" font-weight="600">Insight</text>
+    <text x="700" y="97" fill="#627067" font-size="17">Understand the problem</text>
+    <circle cx="1050" cy="70" r="11" fill="none" stroke="#627067" stroke-width="2"/>
+    <path d="M1058 78L1067 87" fill="none" stroke="#627067" stroke-width="2" stroke-linecap="round"/>
 
     <rect x="610" y="148" width="500" height="88" rx="12" fill="#f6f5ef"/>
     <circle cx="658" cy="192" r="22" fill="#e5e9df"/>
     <text x="658" y="199" fill="#35523d" font-size="18" text-anchor="middle" font-weight="600">02</text>
-    <text x="700" y="188" fill="#253730" font-size="26" font-weight="600">Test</text>
-    <text x="700" y="213" fill="#627067" font-size="17">Inspect the evidence</text>
-    <path d="M1041 179H1064M1041 187H1058M1041 195H1064M1041 203H1053" fill="none" stroke="#627067" stroke-width="2" stroke-linecap="round"/>
+    <text x="700" y="188" fill="#253730" font-size="26" font-weight="600">Idea</text>
+    <text x="700" y="213" fill="#627067" font-size="17">Shape a testable approach</text>
+    <path d="M1047 199V195C1034 185 1040 174 1053 174C1066 174 1072 185 1059 195V199ZM1048 204H1058" fill="none" stroke="#627067" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
     <rect x="610" y="264" width="500" height="88" rx="12" fill="#ed9b70"/>
     <circle cx="658" cy="308" r="22" fill="#f5b68f"/>
     <text x="658" y="315" fill="#583723" font-size="18" text-anchor="middle" font-weight="600">03</text>
-    <text x="700" y="304" fill="#342c23" font-size="26" font-weight="600">Improve</text>
-    <text x="700" y="329" fill="#583723" font-size="17">Compare the next version</text>
-    <path d="M1040 314L1048 306L1056 310L1066 298M1057 298H1066V307" fill="none" stroke="#583723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="700" y="304" fill="#342c23" font-size="26" font-weight="600">Prototype</text>
+    <text x="700" y="329" fill="#583723" font-size="17">Build, test, and improve</text>
+    <path d="M1041 299L1052 293L1063 299V313L1052 319L1041 313ZM1041 299L1052 305L1063 299M1052 305V319" fill="none" stroke="#583723" stroke-width="2" stroke-linejoin="round"/>
   </g>
 </svg>

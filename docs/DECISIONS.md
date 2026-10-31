@@ -1,6 +1,6 @@
 # Decisions
 
-Updated 2026-10-31 for voice prompting and the browser repository separation.
+Updated 2026-10-31 for the insight-to-prototype journey, voice prompting, and the browser repository separation.
 
 ## Confirmed direction
 
@@ -28,8 +28,9 @@ Updated 2026-10-31 for voice prompting and the browser repository separation.
 | D20 | Voice prompting on Mac and in a cloud-hosted browser | Independent SwiftUI/WhisperKit and browser/server Whisper inputs produce editable drafts; using a draft is a separate explicit action through the Rust coordinator |
 | D21 | Portable Docker/VPS setup in Paja Web | Keep SQLite on persistent private storage, protect the single-owner web workspace, and provide HTTPS; infrastructure deployment remains distinct from target-agent publication |
 | D22 | Separate browser source from the CLI and Mac app | Browser UI, Python service, server transcription, tests, and Docker setup live in the private [paja-web repository](https://github.com/RHolappa/paja-web); consume this public CLI at an immutable revision |
+| D23 | Lead with “Insight → Idea → Prototype” and planned multi-agent workflows | Connect the observed problem, proposed approach, and runnable agent version through evidence; build/test/improve remains the development loop, and worker collaboration remains unimplemented |
 
-D14–D15 reflect the latest user direction. D12 remains relevant: several worker agents can help develop the same target agent. These are different roles, and documentation must name them clearly. Visitor recruitment, event collection, and static-site hosting are not prerequisites or delivery tracks.
+D23 describes the product journey; D14–D15 describe the development loop within it. D12 describes several worker agents helping develop the same target agent. These are different roles, and documentation must name them clearly. The prototype remains a versioned AI agent. Visitor recruitment, event collection, and static-site hosting are not prerequisites or delivery tracks.
 
 ## Direction and implementation boundary
 
@@ -47,7 +48,8 @@ The command loop, one original fixture starter, immutable packages/suites, bound
 
 ## Resolve with implementation
 
-- Clarify whether multi-agent collaboration primarily means development workers, runtime specialists solving the user's task, or both. These layers have different authority and lifecycle requirements; neither is implemented. See [Generation](GENERATION.md). Whether Paja starts worker processes is also open; D10 remains the current external-orchestrator proposal.
+- Define the records and transitions linking insight, idea, and prototype without presenting goal metadata as implemented generation.
+- The pipeline highlights development workers. Resolve whether runtime specialists solving the target's task are also needed; these layers have different authority and lifecycle requirements, and neither is implemented. See [Generation](GENERATION.md). Whether Paja starts worker processes is also open; D10 remains the current external-orchestrator proposal.
 - Select one generation backend and compatible target runtime so a problem brief changes runnable behavior. Existing fixture goals/instructions are metadata and do not satisfy D19.
 
 - Validate Linux in hosted CI and extend beyond local macOS validation; implement local IPC, credential issuance/revocation, worker leases, and durable recovery. Rust/Cargo and owner file-lock/SQLite serialization are chosen.

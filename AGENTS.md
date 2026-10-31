@@ -2,6 +2,8 @@
 
 Paja CLI is an open-source project of Innostium Oy focused on “Build, test, and improve your AI agent.” Finnish: “Rakenna, testaa ja kehitä tekoälyagenttiasi.”
 
+Frame the intended product journey as “Insight → Idea → Prototype,” with planned multi-agent development workflows. A prototype is a versioned target AI agent. Keep the runnable control fixture distinguishable from proposed generation, linked pipeline stages, and worker collaboration.
+
 ## Current phase
 
 Read `README.md`, `docs/PRODUCT.md`, and `docs/DECISIONS.md` before substantive work. The Rust local control prototype implements init/build/test/improve/run plus status/results using deterministic fixtures. Real-model adapters, worker sessions, and publication remain proposals. See `docs/CLI.md` and `docs/VALIDATION.md` for implemented scope.
