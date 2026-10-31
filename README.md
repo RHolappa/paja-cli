@@ -1,33 +1,33 @@
+![Paja CLI — an open-source agent workshop by Innostium Oy. Build a version, test it, and improve it.](docs/assets/paja-banner.svg)
+
 # Paja CLI
 
 **Build, test, and improve your AI agent.**
 
-**Rakenna, testaa ja kehitä tekoälyagenttiasi.**
+*Rakenna, testaa ja kehitä tekoälyagenttiasi.*
 
-An open-source project of **Innostium Oy**, implemented in Rust.
+An open-source project of **Innostium Oy**, written in Rust. Paja is being built to turn a problem description into an agent you can run, inspect, test, and improve—with versions and evidence you can follow.
 
-The intended experience is to describe a problem and have Paja generate an agent you can run, inspect, test, and improve. Paja manages the project, versions, execution limits, and evidence. See [problem-to-agent generation](docs/GENERATION.md) for the design and the distinction between development workers and agents collaborating on the actual task.
+[Quick start](#quick-start) · [Browser & Mac](#try-it-your-way) · [CLI reference](docs/CLI.md) · [Roadmap](docs/ROADMAP.md) · [Contributing](CONTRIBUTING.md)
 
-**Status: local control prototype.** The core commands run using a deterministic meal-helper fixture. They prove versioning, test evidence, bounded changes, and comparisons. They do not build or improve a real AI agent yet. Real-model adapters and authenticated worker collaboration are the next implementation stages.
+> [!IMPORTANT]
+> **Local control prototype.** Today, the complete loop runs a deterministic meal-helper fixture. It demonstrates versioning, frozen tests, and bounded improvements. Generating or improving a real AI agent and authenticated worker collaboration are still unimplemented. Voice recognition is real; the target agent remains a fixture.
 
-## Try it in your browser
+## Quick start
 
-The browser demo is at **[paja.innostium.com](https://paja.innostium.com)**. Ask a maintainer for an access key. Record a short English or Finnish prompt, review the transcript, and create a project. Then try **Build → Test → Improve → Results**, or use the lunch example and **Run prompt**.
-
-The demo uses the same deterministic control fixture described below. Voice recognition is real; generating an arbitrary agent from the spoken brief is not implemented yet. Use synthetic prompts for testing.
-
-The browser source, server speech integration, tests, and Docker setup live in the separate private [paja-web repository](https://github.com/RHolappa/paja-web) (repository access required). The CLI and [native Mac app](docs/VOICE.md) remain here. Hosted infrastructure details and credentials are excluded from source.
-
-## Try the complete loop
-
-Install Rust with [rustup](https://rustup.rs/). The repository pins stable Rust 1.99.1 with the 2024 edition. Cargo downloads dependencies on the first build; the example itself needs no network, credentials, or provider spending.
+From this source checkout, with [rustup](https://rustup.rs/) installed:
 
 ```sh
+# Build the CLI.
 cargo build --release --locked
 export PATH="$PWD/target/release:$PATH"
+
+# Give the agent a job and build its first version.
 paja init meal-helper --goal "Help people choose lunches within their budget"
 cd meal-helper
 paja build
+
+# Try it, find a failure, and compare one bounded improvement.
 paja run --input "Choose two lunches for a total of eight euros"
 paja test
 paja improve
@@ -35,18 +35,57 @@ paja results
 paja run --input "Choose two lunches for a total of eight euros"
 ```
 
-The first version chooses lunches costing 11 euros against an 8-euro limit. Two of four repeated control trials fail. One deterministic repair chooses two soups costing 8 euros; all four trials then pass on the same frozen tests. This is **control evidence, not AI quality**.
+Rust **1.99.1** and edition **2024** are pinned. The first build downloads dependencies; running this fixture needs no network, credentials, or provider spending. See the [complete walkthrough](docs/LOCAL_CONTROL.md) for retained versions, edited tests, and recovery.
 
-- **Build:** validate the fixture specification and freeze an immutable package.
-- **Test:** execute host assertions and retain outputs, tool observations, failures, and usage.
-- **Improve:** make one supported fixture repair, rerun the locked suite, and compare with the baseline. A regressing candidate stays available for inspection and does not become current.
-- **Run:** invoke any retained version. `run` is available immediately after `build`.
+### See the difference
 
-`paja status` shows the current version and its evidence. `paja results` shows a test or comparison. Each command also supports versioned `--json` output with explicit machine identities and retry keys. See the [CLI reference](docs/CLI.md) and [local walkthrough](docs/LOCAL_CONTROL.md).
+The fixture's first version picks lunches over budget. One deterministic repair changes the selection strategy, then reruns the same frozen tests.
 
-## Implementation and checks
+| What you observe | Before | After |
+| :--- | :--- | :--- |
+| Selected lunches | Soup + wrap | Soup + soup |
+| Total against an €8 limit | **€11 — over budget** | **€8 — within budget** |
+| Passing control trials | 2 of 4 | 4 of 4 |
+| Baseline evidence | Recorded | Preserved |
 
-One local owner uses a serialized coordinator backed by SQLite transactions and content digests. The fixed fixture runtime has no network, credentials, arbitrary code, or external tool effects. Rust's standard file locks fence competing CLI processes. The release profile uses thin LTO and one code-generation unit; [validation](docs/VALIDATION.md) records measured performance and its limits.
+These are **control-fixture results, not AI quality measurements**. A candidate that regresses stays available for inspection and does not become current.
+
+## Try it your way
+
+| Interface | Get started | Speech processing |
+| :--- | :--- | :--- |
+| **Terminal** | Run the [quick start](#quick-start) | Typed input; no speech model needed |
+| **Browser** | Open [paja.innostium.com](https://paja.innostium.com) and ask a maintainer for an access key | On the operator's server |
+| **Native Mac** | Follow the [Mac setup](docs/VOICE.md#native-mac-app) | Locally on your Mac |
+
+In either voice companion, record a short English or Finnish prompt, review the transcript, and create a project. Then try **Build → Test → Improve → Results**, or choose the lunch example and **Run prompt**. Use synthetic prompts in the hosted demo.
+
+Both companions use the same Rust coordinator and fixture. The browser source, server transcription, tests, and Docker setup live in the separate private [paja-web repository](https://github.com/RHolappa/paja-web) (repository access required). The CLI and Mac app remain here. Read [native voice privacy and scope](docs/VOICE.md#privacy-and-scope); browser data handling is documented in Paja Web.
+
+## What the loop gives you
+
+- **Inspectable versions.** Build freezes a package; run invokes a retained version immediately.
+- **Evidence behind every result.** Tests retain actual outputs, tool observations, failures, and usage.
+- **Bounded changes.** Improve attempts one supported fixture repair against the locked suite and preserves the baseline.
+- **Human and machine interfaces.** Status and results explain the current evidence; versioned `--json` responses include explicit identities and retry keys.
+
+The current implementation supports one local filesystem owner. SQLite transactions, content digests, and standard file locks protect the control loop. The fixture runtime has no network, credentials, arbitrary code, or external tool effects. See [architecture](docs/ARCHITECTURE.md) for the implemented boundaries.
+
+## Explore the project
+
+| Start here | What you'll find |
+| :--- | :--- |
+| [CLI reference](docs/CLI.md) · [Local walkthrough](docs/LOCAL_CONTROL.md) | Commands, JSON output, and the complete fixture loop |
+| [Product](docs/PRODUCT.md) · [Generation](docs/GENERATION.md) | The intended problem-to-agent experience |
+| [Architecture](docs/ARCHITECTURE.md) · [Worker protocol](docs/AGENT_PROTOCOL.md) | Current internals and proposed collaboration |
+| [Roadmap](docs/ROADMAP.md) · [Decisions](docs/DECISIONS.md) | Next implementation steps and design choices |
+| [Validation](docs/VALIDATION.md) | Executed checks, measured performance, and known limits |
+
+The **target agent** is the versioned program being developed. **Workers** are separately authenticated coding, testing, or reviewing agents; worker collaboration remains a proposal. One real generation/runtime adapter is the next step toward useful AI behavior.
+
+Runnable starter inputs: [agent specification](examples/agent.json) and [test suite](examples/cases.json). The [status example](examples/status.json) illustrates the current response with a synthetic project ID.
+
+## Develop and contribute
 
 ```sh
 cargo fmt --all -- --check
@@ -55,18 +94,10 @@ cargo test --locked
 python3 scripts/check_repository.py
 ```
 
-Normal tests use synthetic fixtures. Live model tests require a future adapter, explicit credentials, and bounded authorization.
+Normal tests use synthetic fixtures. Live target-model tests require a future adapter, explicit credentials, and bounded authorization. Companion checks are documented in [Voice](docs/VOICE.md#native-development-checks).
 
-## Direction and contribution
+Read [Contributing](CONTRIBUTING.md) for a focused first change, [Governance](GOVERNANCE.md) for review, and [Security](SECURITY.md) for private reporting. Publication and executable releases follow [Releasing](docs/RELEASING.md).
 
-The **target agent** is the versioned program being developed. **Workers** are separately authenticated coding, testing, or reviewing agents. The [worker protocol](docs/AGENT_PROTOCOL.md) describes future collaboration; workers are not supported by this owner-only prototype.
+---
 
-- [Product](docs/PRODUCT.md): intended outcome, scope, and quality evidence.
-- [Generation](docs/GENERATION.md): problem intake, generated packages, and managed execution.
-- [Architecture](docs/ARCHITECTURE.md): current implementation and intended boundaries.
-- [Roadmap](docs/ROADMAP.md): remaining coordinator work, one real model adapter, and practical validation.
-- [Decisions](docs/DECISIONS.md): confirmed direction and remaining choices.
-
-The [agent specification](examples/agent.json) and [test suite](examples/cases.json) are the runnable starter inputs. The [status response](examples/status.json) illustrates the implemented envelope with a synthetic project ID.
-
-See [Contributing](CONTRIBUTING.md), [Governance](GOVERNANCE.md), [Security](SECURITY.md), and [Releasing](docs/RELEASING.md). Licensed under [Apache License 2.0](LICENSE), with attribution in [NOTICE](NOTICE).
+A project of **Innostium Oy** · [Apache License 2.0](LICENSE) · [Attribution](NOTICE) · [Code of conduct](CODE_OF_CONDUCT.md)
