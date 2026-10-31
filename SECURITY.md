@@ -14,7 +14,7 @@ Maintainers will acknowledge and investigate reports as availability allows, coo
 
 ## Relevant boundaries
 
-The optional browser service is one private owner workspace behind a random access key and expiring HttpOnly sessions. It requires HTTPS in deployment, checks request origins, caps audio/prompt sizes, and passes allowlisted operations to the Rust coordinator. It is not a multi-user service or a sandbox for arbitrary agent code. Browser audio reaches the operator's server; native Mac audio stays on the Mac. Transcription has no third-party speech API. Model downloads require network access during setup. See [Voice data handling](docs/VOICE.md#privacy-and-scope).
+The native Mac companion processes speech locally and passes reviewed prompts through private files to the Rust coordinator. Model downloads require network access during explicit setup. See [Voice data handling](docs/VOICE.md#privacy-and-scope). The separately maintained private [paja-web repository](https://github.com/RHolappa/paja-web) owns browser authentication, server transcription, and deployment security; its service is one shared owner workspace.
 
 Reports about coordinator access, worker impersonation, stale leases, revision races, target execution isolation, unauthorized tools, test/grade tampering, credential exposure, unbounded model calls, fabricated evidence, stale release approval, duplicate external actions, or unsafe trace export are especially useful. See [Architecture](docs/ARCHITECTURE.md) and [Agent protocol](docs/AGENT_PROTOCOL.md) for the proposed boundaries.
 

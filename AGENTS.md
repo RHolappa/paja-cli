@@ -8,7 +8,7 @@ Read `README.md`, `docs/PRODUCT.md`, and `docs/DECISIONS.md` before substantive 
 
 For planning requests, keep all affected documents and examples consistent. When implementation is requested, begin with the complete local build/test/improve control example in `docs/ROADMAP.md` and record actual validation.
 
-The native Mac and privately hosted browser voice companions are owner clients of the same Rust coordinator. Speech recognition is separate from the still-proposed real target-agent runtime. See `docs/VOICE.md` for setup, privacy, and deployment boundaries.
+This repository contains the Rust coordinator and native Mac voice companion. Browser UI, Python service, server transcription, and Docker setup belong to the separate private `RHolappa/paja-web` repository, which consumes a pinned CLI revision. Speech recognition is separate from the still-proposed real target-agent runtime. See `docs/VOICE.md` for native setup and client boundaries.
 
 ## Scope
 

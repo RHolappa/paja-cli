@@ -1,8 +1,12 @@
 # Local validation
 
+## Browser repository separation — 2026-10-31
+
+Browser source, Python server, transcription integration, Docker setup, and browser tests moved to the private [paja-web repository](https://github.com/RHolappa/paja-web). The Rust sources, native Mac app, and native build script are unchanged. The extracted app passed five service tests against this CLI, the Chromium workflow suite with synthetic ASR, an independent Docker build from the pinned public CLI revision, five tests inside that read-only container, and the actual HTTP/coordinator smoke check. Repository documentation and local links pass the repository checker. The hosted application was not restarted by this source split.
+
 ## Voice companions — 2026-10-31
 
-The Mac and browser companions use the existing Rust fixture coordinator. Executed locally on macOS/ARM64, with the server speech path also exercised in its Linux/ARM64 Docker image:
+The Mac and browser companions use the existing Rust fixture coordinator. Browser-specific checks below are historical results from before extraction; their code and current commands now live in the separate private [paja-web repository](https://github.com/RHolappa/paja-web). Executed locally on macOS/ARM64, with the server speech path also exercised in its Linux/ARM64 Docker image:
 
 | Check | Actual result |
 | --- | --- |

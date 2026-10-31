@@ -10,7 +10,7 @@ Milestone 1 is **partially complete**: its core local loop is implemented. The t
 
 ## Voice prompting increment
 
-The 2026-10-31 voice increment adds a native Mac app and a private browser client with generic Docker/VPS setup scripts. Both use the existing owner coordinator. See [Voice](VOICE.md). This implements spoken prompt intake and the fixture loop, not problem-specific generation, worker collaboration, or target publication.
+The 2026-10-31 voice increment adds a native Mac app and a private browser client with generic Docker/VPS setup scripts. Both use the existing owner coordinator. The native app remains here; browser code, tests, and Docker setup have moved to the separate private [paja-web repository](https://github.com/RHolappa/paja-web). See [Voice](VOICE.md). This implements spoken prompt intake and the fixture loop, not problem-specific generation, worker collaboration, or target publication.
 
 ## Next user-facing capability: problem-to-agent generation
 

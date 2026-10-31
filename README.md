@@ -16,7 +16,7 @@ The browser demo is at **[paja.innostium.com](https://paja.innostium.com)**. Ask
 
 The demo uses the same deterministic control fixture described below. Voice recognition is real; generating an arbitrary agent from the spoken brief is not implemented yet. Use synthetic prompts for testing.
 
-For your own installation, see the generic [Mac and browser setup](docs/VOICE.md). Details of the hosted demo's infrastructure and access credentials are kept out of this public repository.
+The browser source, server speech integration, tests, and Docker setup live in the separate private [paja-web repository](https://github.com/RHolappa/paja-web) (repository access required). The CLI and [native Mac app](docs/VOICE.md) remain here. Hosted infrastructure details and credentials are excluded from source.
 
 ## Try the complete loop
 

@@ -1,6 +1,6 @@
 # Decisions
 
-Updated 2026-10-31 for native Mac and privately hosted browser voice prompting.
+Updated 2026-10-31 for voice prompting and the browser repository separation.
 
 ## Confirmed direction
 
@@ -26,7 +26,8 @@ Updated 2026-10-31 for native Mac and privately hosted browser voice prompting.
 | D18 | Keep rejected candidates and explicit evidence | Only a regression-free observed improvement becomes current; preserve baseline versions, locked tests, and source files |
 | D19 | Generate useful agents from a described problem | The intended build path must turn the job, inputs, success criteria, and allowed tools into an inspectable runnable target; Paja manages its lifecycle and evidence |
 | D20 | Voice prompting on Mac and in a cloud-hosted browser | Independent SwiftUI/WhisperKit and browser/server Whisper inputs produce editable drafts; using a draft is a separate explicit action through the Rust coordinator |
-| D21 | Portable Docker/VPS setup | Keep SQLite on persistent private storage, protect the single-owner web workspace, and provide HTTPS; infrastructure deployment remains distinct from target-agent publication |
+| D21 | Portable Docker/VPS setup in Paja Web | Keep SQLite on persistent private storage, protect the single-owner web workspace, and provide HTTPS; infrastructure deployment remains distinct from target-agent publication |
+| D22 | Separate browser source from the CLI and Mac app | Browser UI, Python service, server transcription, tests, and Docker setup live in the private [paja-web repository](https://github.com/RHolappa/paja-web); consume this public CLI at an immutable revision |
 
 D14–D15 reflect the latest user direction. D12 remains relevant: several worker agents can help develop the same target agent. These are different roles, and documentation must name them clearly. Visitor recruitment, event collection, and static-site hosting are not prerequisites or delivery tracks.
 

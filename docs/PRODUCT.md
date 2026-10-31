@@ -83,7 +83,7 @@ The first useful result is a specific next change supported by a recorded failur
 - Credentials, private inputs, traces, and lessons do not become public implicitly.
 - Optional publication binds exact verified package bytes, test evidence, model/runtime settings, tools, target, and authorization.
 
-The earlier static-app experiment, visitor enrollment, web analytics, and hosting-first workflow is removed. Community accounts, competitions, galleries, characters, media generation, and an independent coding-agent service remain outside scope. The 2026-10-31 request adds voice prompting through native Mac and optionally deployed browser companions. These are owner interfaces to the development loop, not a restored community platform. See [Voice](VOICE.md). Speech input does not implement problem-to-agent generation.
+The earlier static-app experiment, visitor enrollment, web analytics, and hosting-first workflow is removed. Community accounts, competitions, galleries, characters, media generation, and an independent coding-agent service remain outside scope. The 2026-10-31 request adds voice prompting through native Mac and optionally deployed browser companions. These are owner interfaces to the development loop, not a restored community platform. The native app remains here; browser source and deployment tooling live in the separate private [paja-web repository](https://github.com/RHolappa/paja-web). See [Voice](VOICE.md). Speech input does not implement problem-to-agent generation.
 
 ## Practical validation
 

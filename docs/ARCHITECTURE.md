@@ -16,11 +16,11 @@ The release profile enables thin LTO and one code-generation unit. Fixed input b
 
 ## Voice clients
 
-The [Mac and browser companions](VOICE.md) are owner clients of the same Rust executable. They invoke fixed command argument arrays, hand reviewed prompts over through private UTF-8 files, and use the coordinator's project IDs, revisions, frozen tests, and request receipts. They never open its SQLite database directly. `paja identity` discovers a local owner's project identity without changing state.
+The [native Mac companion](VOICE.md) in this repository and the browser companion in the separate private [paja-web repository](https://github.com/RHolappa/paja-web) are owner clients of the same Rust executable. They invoke fixed command argument arrays, hand reviewed prompts over through private UTF-8 files, and use the coordinator's project IDs, revisions, frozen tests, and request receipts. They never open its SQLite database directly. `paja identity` discovers a local owner's project identity without changing state.
 
 The native SwiftUI app uses AVFoundation for bounded recording and WhisperKit for local speech recognition. Model setup is explicit. The browser records and resamples a short clip locally, then sends a mono WAV over HTTPS to its own server. A single-owner Python service validates the audio and runs faster-whisper in a bounded subprocess; its model assets are provisioned separately. Neither transcription adapter is a target-agent runtime or a development worker.
 
-The Docker service stores project directories and model assets in a persistent volume. One web process owns expiring owner sessions; coordinator file locks serialize actual state changes. Caddy terminates HTTPS. Native and cloud project stores are independent; there is no automatic synchronization, multi-user tenancy, or worker authentication.
+Paja Web owns its Docker setup and stores project directories and model assets in a persistent volume. One web process owns expiring owner sessions; coordinator file locks serialize actual state changes. Caddy terminates HTTPS. Native and cloud project stores are independent; there is no automatic synchronization, multi-user tenancy, or worker authentication.
 
 ## Target generation architecture
 

@@ -3,7 +3,7 @@
 ## Unreleased
 
 - Add a native SwiftUI voice companion with local WhisperKit transcription and an editable draft.
-- Add a private browser companion, CPU speech transcription on the operator's server, portable Docker/Caddy setup.
+- Move the browser companion, server speech transcription, tests, and Docker/Caddy setup to the separate private [paja-web repository](https://github.com/RHolappa/paja-web). Keep the CLI and Mac app here.
 - Add `paja identity`, reviewed prompt files for init/run, and request fingerprints based on file contents. Both companions use the existing Rust coordinator.
 
 - Clarify the intended problem-to-agent generation experience and managed CLI lifecycle; distinguish proposed runtime specialists from development workers. No generation backend or team runtime is implemented by this design update.
